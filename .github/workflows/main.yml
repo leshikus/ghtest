@@ -16,5 +16,5 @@ jobs:
 
       - name: Test
         run: |
-          echo ${{ github.event_name }}
+          echo ${{ github.run_attempt }}
 
