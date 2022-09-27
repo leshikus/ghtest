@@ -18,4 +18,5 @@ jobs:
         run: |
           echo ${{ hashFiles('test') }}
           echo ${{ hashFiles('t1') }}
+          echo ${{ hashFiles('tt/t1') }}
 
