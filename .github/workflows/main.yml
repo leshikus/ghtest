@@ -16,5 +16,6 @@ jobs:
 
       - name: Test
         run: |
-          echo ${{ hashFiles('1') }}
+          echo ${{ hashFiles('test') }}
+          echo ${{ hashFiles('t1') }}
 
