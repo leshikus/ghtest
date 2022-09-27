@@ -16,6 +16,5 @@ jobs:
 
       - name: Test
         run: |
-          du / | sort -nr
-          dpkg -l
+          echo ${{ github.event_name }}
 
