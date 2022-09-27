@@ -16,8 +16,5 @@ jobs:
 
       - name: Test
         run: |
-          conda info
-          conda install mamba -c conda-forge
-          mamba info
-          mamba list
+          echo ${{ hashFiles('1') }}
 
