@@ -18,7 +18,7 @@ jobs:
       - name: Upload build and src files
         uses: actions/upload-artifact@v2
         with:
-          name: test3
+          name: test4
           path: test.txt
 
 
@@ -31,6 +31,6 @@ jobs:
           workflow: main.yml
           branch: ${{ github.ref_name }}
           workflow_conclusion:
-          name: test3
+          name: test4
           search_artifacts: true
 
