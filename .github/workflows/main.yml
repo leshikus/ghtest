@@ -30,7 +30,7 @@ jobs:
         with:
           workflow: main.yml
           branch: ${{ github.ref_name }}
-          workflow_conclusion:
+          workflow_conclusion: in_progress
           name: test4
           search_artifacts: true
 
