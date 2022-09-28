@@ -9,15 +9,27 @@ on:
   push: []
 
 jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo test >test.txt
+
+      - name: Upload build and src files
+        uses: actions/upload-artifact@v2
+        with:
+          name: test
+          path: test.txt
+
+
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Test
-        run: |
-          echo $CONDA/bin/conda
-          ls -l /usr/bin/conda
-          conda info
-          $CONDA/bin/conda info
+      - name: Download Conda env if the cache is not updated
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: main.yml
+          branch: ${{ github.ref_name }}
+          name: test
+          search_artifacts: true
 
