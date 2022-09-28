@@ -17,4 +17,6 @@ jobs:
       - name: Test
         run: |
           echo $CONDA/bin/conda
+          conda -v
+          $CONDA/bin/conda -v
 
