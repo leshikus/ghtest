@@ -10,15 +10,10 @@ on:
     paths-ignore:
       - 'docs/**'
 
-    inputs:
-      cache:
-        type: boolean
-        default: true
-
 jobs:
   upload:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo ${{ inputs.cache }}
+          echo ${{ inputs.cache == true }}
 
