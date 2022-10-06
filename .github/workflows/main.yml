@@ -15,5 +15,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo ${{ inputs.cache == true }}
+          echo ${{ inputs.cache != false }}
 
