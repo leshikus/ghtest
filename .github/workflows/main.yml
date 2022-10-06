@@ -2,9 +2,9 @@ name: Build
 on:
   workflow_dispatch:
     inputs:
-      cache:
+      nocache:
         type: boolean
-        default: true
+        default: false
 
   push:
     paths-ignore:
@@ -15,5 +15,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo ${{ inputs.cache != false }}
+          echo ${{ !!inputs.nocache }}
 
