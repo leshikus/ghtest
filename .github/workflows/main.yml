@@ -2,35 +2,23 @@ name: Build
 on:
   workflow_dispatch:
     inputs:
-      environment:
-        type: string
-        default: DEV
+      cache:
+        type: boolean
+        default: true
 
-  push: []
+  push:
+    paths-ignore:
+      - 'docs/**'
+
+    inputs:
+      cache:
+        type: boolean
+        default: true
 
 jobs:
   upload:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo test >test.txt
-
-      - name: Upload build and src files
-        uses: actions/upload-artifact@v2
-        with:
-          name: test3
-          path: test.txt
-
-
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download Conda env if the cache is not updated
-        uses: leshikus/action-download-artifact@in_progress
-        with:
-          workflow: main.yml
-          branch: ${{ github.ref_name }}
-          workflow_conclusion: in_progress
-          name: test4
-          search_artifacts: true
+          echo ${{ inputs.cache }}
 
