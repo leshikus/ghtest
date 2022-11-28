@@ -15,5 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo ${{ !!inputs.nocache }}
+          sh -vx
+          ulimit -v
+          ulimit -v unlimited\
 
