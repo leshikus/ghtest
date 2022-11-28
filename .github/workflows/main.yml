@@ -16,9 +16,6 @@ jobs:
     steps:
       - run: |
           sh -vx
-          ulimit -v
-          cat /etc/security/limits.conf
-          sudo bash -c 'ulimit -v 16000000000'
-          cat /proc/meminfo
-          ulimit -v unlimited
+          conda run bash -c 'ulimit -v'
+          conda run bash -c 'ulimit -v unlimited'
 
