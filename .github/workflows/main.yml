@@ -17,5 +17,6 @@ jobs:
       - run: |
           sh -vx
           ulimit -v
-          ulimit -v unlimited\
+          cat /proc/meminfo
+          ulimit -v unlimited
 
