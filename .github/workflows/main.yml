@@ -17,7 +17,8 @@ jobs:
       - run: |
           sh -vx
           ulimit -v
-          sudo ulimit -v 16000000000
+          cat /etc/security/limits.conf
+          sudo bash -c 'ulimit -v 16000000000'
           cat /proc/meminfo
           ulimit -v unlimited
 
