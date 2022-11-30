@@ -1,14 +1,11 @@
 name: Build
-on:
+on: 
   workflow_dispatch:
     inputs:
       nocache:
         type: boolean
         default: false
-
-  push:
-    paths-ignore:
-      - 'docs/**'
+  push: []
 
 jobs:
   upload:
@@ -16,6 +13,5 @@ jobs:
     steps:
       - run: |
           sh -vx
-          conda run bash -c 'ulimit -v'
-          conda run bash -c 'ulimit -v unlimited'
-
+          g++ test.cpp -o test -fsanitize=address
+          ./test
