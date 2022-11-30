@@ -5,12 +5,13 @@ on:
       nocache:
         type: boolean
         default: false
-  push: []
+  push:
 
 jobs:
   upload:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - run: |
           sh -vx
           g++ test.cpp -o test -fsanitize=address
