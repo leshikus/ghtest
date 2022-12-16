@@ -18,6 +18,7 @@ jobs:
           sh -vx
           wget -qO - https://repositories.intel.com/graphics/intel-graphics.key | \
             sudo gpg --dearmor --output /usr/share/keyrings/intel-graphics.gpg
+          cat /usr/share/keyrings/intel-graphics.gpg
           sudo apt-add-repository \
             'deb [arch=amd64] https://repositories.intel.com/graphics/ubuntu '$(lsb_release -cs)' main'
           sudo apt-get update
