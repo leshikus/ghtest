@@ -18,9 +18,8 @@ jobs:
           set -vx
           wget -qO - https://repositories.intel.com/graphics/intel-graphics.key | \
             sudo gpg --dearmor --output /usr/share/keyrings/intel-graphics.gpg
-          cat /usr/share/keyrings/intel-graphics.gpg
-          sudo apt-add-repository \
-            'deb [arch=amd64] https://repositories.intel.com/graphics/ubuntu '$(lsb_release -cs)' main'
+          echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/intel-graphics.gpg] https://repositories.intel.com/graphics/ubuntu jammy flex' | \
+            sudo tee  /etc/apt/sources.list.d/intel.gpu.jammy.list
           sudo apt-get update
           sudo apt-get install -y \
             intel-igc-cm \
@@ -32,4 +31,4 @@ jobs:
             libigc-dev \
             libigdfcl-dev \
             libigfxcmrt-dev \
-            libmfx1          
+            libmfx1
