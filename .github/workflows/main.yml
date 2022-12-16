@@ -16,6 +16,19 @@ jobs:
       - uses: actions/checkout@v3
       - run: |
           sh -vx
-          echo github.ref_name ${{ github.ref_name }}
-          g++ test.cpp -o test -fsanitize=address
-          ./test
+          wget -qO - https://repositories.intel.com/graphics/intel-graphics.key | \
+            sudo gpg --dearmor --output /usr/share/keyrings/intel-graphics.gpg
+          sudo apt-add-repository \
+            'deb [arch=amd64] https://repositories.intel.com/graphics/ubuntu '$(lsb_release -cs)' main'
+          sudo apt-get update
+          sudo apt-get install -y \
+            intel-igc-cm \
+            intel-level-zero-gpu \
+            intel-media-va-driver-non-free \
+            intel-opencl-icd \
+            level-zero \
+            level-zero-dev \
+            libigc-dev \
+            libigdfcl-dev \
+            libigfxcmrt-dev \
+            libmfx1          
