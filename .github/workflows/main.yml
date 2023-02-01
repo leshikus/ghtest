@@ -6,6 +6,8 @@ on:
         type: boolean
         default: false
   push:
+  schedule:
+    - cron: '*/5 * * * *'
 
 jobs:
   upload:
@@ -16,12 +18,12 @@ jobs:
           set -vx
           date
 
-      - name: Build image
-        uses: docker/build-push-action@v3
-        with:
-          context: .
-          file: Dockerfile
-          push: false
-
-      - run: |
-          which libparquet.so.1100
+#      - name: Build image
+#        uses: docker/build-push-action@v3
+#        with:
+#          context: .
+#          file: Dockerfile
+#          push: false
+#
+#      - run: |
+#          which libparquet.so.1100
