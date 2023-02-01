@@ -10,25 +10,8 @@ on:
 jobs:
   upload:
     runs-on: ubuntu-latest
-    env:
-      ASAN_OPTIONS: detect_leaks=0 verbosity=1
     steps:
       - uses: actions/checkout@v3
       - run: |
           set -vx
-          wget -qO - https://repositories.intel.com/graphics/intel-graphics.key | \
-            sudo gpg --dearmor --output /usr/share/keyrings/intel-graphics.gpg
-          echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/intel-graphics.gpg] https://repositories.intel.com/graphics/ubuntu jammy flex' | \
-            sudo tee  /etc/apt/sources.list.d/intel.gpu.jammy.list
-          sudo apt-get update
-          sudo apt-get install -y \
-            intel-igc-cm \
-            intel-level-zero-gpu \
-            intel-media-va-driver-non-free \
-            intel-opencl-icd \
-            level-zero \
-            level-zero-dev \
-            libigc-dev \
-            libigdfcl-dev \
-            libigfxcmrt-dev \
-            libmfx1
+          date
