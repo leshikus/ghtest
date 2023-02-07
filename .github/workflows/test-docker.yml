@@ -30,5 +30,5 @@ jobs:
         run: echo "$STEPS_CONTEXT"
       - name: Dump runner context
         env:
-          RUNNER_CONTEXT: ${{ toJson(runner) }}
+          RUNNER_CONTEXT: ${{ toJson(workflow) }}
         run: echo "$RUNNER_CONTEXT"
