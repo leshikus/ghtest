@@ -11,9 +11,6 @@ on:
       reset-cache:
         type: boolean
         default: false
-    secrets:
-      token:
-        required: true        
 
 jobs:
   build:
