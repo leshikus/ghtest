@@ -1,0 +1,23 @@
+name: Docker test
+on:
+  workflow_call:
+    inputs:
+      name:
+        type: string
+        default: cpu
+      build-name:
+        type: string
+        default: build
+      reset-cache:
+        type: boolean
+        default: false
+    secrets:
+      token:
+        required: true        
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          set

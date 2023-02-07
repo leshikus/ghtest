@@ -1,29 +1,15 @@
-name: Build
-on: 
+name: Benchmarking
+on:
   workflow_dispatch:
     inputs:
-      nocache:
+      reset-cache:
         type: boolean
-        default: false
+        default: true
   push:
-  schedule:
-    - cron: '*/5 * * * *'
 
 jobs:
-  upload:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - run: |
-          set -vx
-          date
+  modin-containerized:
+    uses: ./.github/workflows/test-docker.yml
+    with:
+      reset-cache: ${{ !!inputs.reset-cache }}
 
-#      - name: Build image
-#        uses: docker/build-push-action@v3
-#        with:
-#          context: .
-#          file: Dockerfile
-#          push: false
-#
-#      - run: |
-#          which libparquet.so.1100
