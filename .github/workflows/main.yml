@@ -10,6 +10,4 @@ on:
 jobs:
   modin-containerized:
     uses: ./.github/workflows/test-docker.yml
-    with:
-      reset-cache: ${{ !!inputs.reset-cache }}
 
