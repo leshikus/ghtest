@@ -19,5 +19,4 @@ jobs:
 
       - name: Free space
         run: |
-          ls /
-          echo stderr 1>&2
+          date
