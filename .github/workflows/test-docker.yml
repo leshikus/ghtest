@@ -19,4 +19,4 @@ jobs:
 
       - name: Free space
         run: |
-          echo ${{ github.event_name == 'schedule' }}
+          echo ${{ github.event_name }}
