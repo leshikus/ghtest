@@ -10,7 +10,8 @@ on:
   pull_request:
     branches: main
   schedule:
-    - cron: '* * * * *'
+    #    - cron: '* * * * *'
+    cron: '* * * * *'
 
 jobs:
   modin-containerized:
