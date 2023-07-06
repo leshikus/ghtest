@@ -19,4 +19,5 @@ jobs:
 
       - name: Free space
         run: |
-          echo ${{ github.event_name }}
+          whoami
+          set
