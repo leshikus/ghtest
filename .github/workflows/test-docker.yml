@@ -19,5 +19,6 @@ jobs:
 
       - name: Free space
         run: |
+          conda --version
           whoami
           set
