@@ -1,4 +1,4 @@
-name: Benchmarking ${{ inputs.reset-cache }}
+name: Benchmarking
 on:
   workflow_dispatch:
     inputs:
