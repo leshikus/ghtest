@@ -19,7 +19,8 @@ jobs:
 
       - name: Free space
         run: |
-          which conda
+          ls -l /usr/bin/conda
+          cat /usr/bin/conda
           conda --version
           whoami
           set
