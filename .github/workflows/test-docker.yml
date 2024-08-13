@@ -19,8 +19,4 @@ jobs:
 
       - name: Free space
         run: |
-          ls -l /usr/bin/conda
-          cat /usr/share/miniconda/bin/conda
-          conda --version
-          whoami
-          set
+          df -h
