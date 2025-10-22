@@ -1,18 +1,13 @@
 name: Benchmarking
 on:
-  workflow_dispatch:
-    inputs:
-      reset-cache:
-        type: boolean
-        default: true
   push:
-    branches: '2[1-9].[1-9]'
-  pull_request:
-    branches: main
-    #  schedule:
-    #- cron: '1 * * * *'
+    branches: '2[1-9].[1-9]5'
 
 jobs:
-  modin-containerized:
-    uses: ./.github/workflows/test-docker.yml
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      run: |
+        echo test
 
