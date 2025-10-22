@@ -6,7 +6,7 @@ on:
         type: boolean
         default: true
   push:
-    #    branches: main
+    branches: '2[1-9].[1-9]'
   pull_request:
     branches: main
     #  schedule:
