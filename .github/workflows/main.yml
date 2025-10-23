@@ -4,12 +4,12 @@ on:
 
 jobs:
   test1:
-    if: false
+#    if: false
     runs-on: ubuntu-latest
 
     steps:
       - run: |
-          echo test1
+          echo ${{ github.head_ref }}
 
   test2:
     needs: test1
