@@ -1,12 +1,20 @@
 name: Benchmarking
 on:
-  push:
-    branches: '2[1-9].[1-9]5'
+  pull_request:
+    branches: 'a'
 
 jobs:
-  test:
+  test1:
     runs-on: ubuntu-latest
 
     steps:
       - run: |
           echo test1
+
+  test2:
+    needs: test1
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: |
+          echo test2
