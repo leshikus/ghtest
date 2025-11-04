@@ -1,15 +1,14 @@
 name: Benchmarking
 on:
-  pull_request
+  push
 
 jobs:
   test1:
-    if: github.head_ref matches '^[1-9][0-9]*\.[1-9][0-9]*$'
     runs-on: ubuntu-latest
 
     steps:
       - run: |
-          echo ${{ github.head_ref }}
+          echo "${{ toJSON(job) }}"
 
   test2:
     needs: test1
